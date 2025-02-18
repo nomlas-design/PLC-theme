@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist/js",
+    "rootDir": "./assets/js/src",
+    "jsx": "react"
+  },
+  "include": ["assets/js/src/**/*"],
+  "exclude": ["node_modules"]
+}
