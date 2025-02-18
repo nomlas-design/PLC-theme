@@ -2,6 +2,39 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
+const isDevelopment = process.env.NODE_ENV === 'development';
+
+const plugins = [
+  new MiniCssExtractPlugin({
+    filename: 'css/[name].css',
+  }),
+];
+
+// Only add BrowserSync in development mode
+if (isDevelopment) {
+  plugins.push(
+    new BrowserSyncPlugin(
+      {
+        host: 'localhost',
+        port: 3000,
+        proxy: 'http://localhost:8000',
+        files: ['./dist/css/*.css', './dist/js/*.js', './**/*.php'],
+        injectChanges: true,
+        notify: false,
+        reloadDelay: 0,
+        codeSync: true,
+        reloadOnRestart: true,
+        snippetOptions: {
+          ignorePaths: ['wp-admin/**'],
+        },
+      },
+      {
+        reload: true,
+      }
+    )
+  );
+}
+
 module.exports = {
   entry: {
     main: ['./assets/js/src/main.ts', './assets/scss/main.scss'],
@@ -23,38 +56,16 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].css',
-    }),
-    new BrowserSyncPlugin(
-      {
-        host: 'localhost',
-        port: 3000,
-        proxy: 'http://localhost:8000',
-        files: ['./dist/css/*.css', './dist/js/*.js', './**/*.php'],
-        injectChanges: true,
-        notify: false,
-        reloadDelay: 0,
-        codeSync: true,
-        reloadOnRestart: true,
-        snippetOptions: {
-          ignorePaths: ['wp-admin/**'],
-        },
-      },
-      {
-        reload: true,
-      }
-    ),
-  ],
+  plugins,
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-  watch: true,
+  watch: isDevelopment,
   watchOptions: {
     ignored: /node_modules/,
     aggregateTimeout: 300,
     poll: 1000,
   },
-  devtool: 'source-map',
+  devtool: isDevelopment ? 'source-map' : false,
+  mode: isDevelopment ? 'development' : 'production',
 };
