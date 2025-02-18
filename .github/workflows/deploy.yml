@@ -1,16 +1,31 @@
-name: Deploy Theme to InfinityFree
+name: Deploy WordPress Theme to InfinityFree
 
 on:
   push:
     branches:
-      - main # Triggers deployment when pushing to main branch
+      - main # Deploys when pushing to main
 
 jobs:
-  ftp-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: |
+          cd theme/plc-2025
+          npm install
+
+      - name: Build Theme Assets
+        run: |
+          cd theme/plc-2025
+          npm run build
 
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
@@ -18,5 +33,5 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./theme/plc-2025/ # Only deploy the theme directory
+          local-dir: ./theme/plc-2025/ # Deploy full theme with built assets
           server-dir: /htdocs/wp-content/themes/plc-2025/

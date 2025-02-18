@@ -7,9 +7,6 @@ wordpress/
 # Ignore node_modules inside the theme
 theme/plc-2025/node_modules/
 
-# Ignore build artifacts if they are generated dynamically
-theme/plc-2025/dist/
-
 # Ignore database & uploads
 db_data/
 .env
