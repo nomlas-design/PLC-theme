@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
+          cache-dependency-path: theme/plc-2025/package-lock.json
 
       - name: Debug - List Files
         run: ls -R theme/plc-2025 # Confirms correct paths in logs
