@@ -9,16 +9,12 @@
   padding: 0;
 }
 
-html {
-  font-size: 62.5%;
-}
-
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.6rem;
   line-height: 1.5;
   color: #333;
-  background-color: red;
+  background-color: blue;
   min-height: 100vh;
   scroll-behavior: smooth;
 }
