@@ -27,11 +27,12 @@
     align-items: center;
     gap: 5rem;
     height: 80px;
+    position: relative;
   }
 
   &__logo {
     flex-shrink: 0;
-    width: 200px;
+    width: 210px;
     transition: opacity 0.3s ease-out;
 
     &:hover {
@@ -84,6 +85,8 @@
   }
 
   &--open {
+    background: white;
+    height: 100dvh;
     .menu-toggle {
       .bar {
         &:nth-of-type(1) {
@@ -106,6 +109,52 @@
         }
       }
     }
+
+    .container {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: 100%;
+    }
+
+    .header__items {
+      @include respond($bp-sm) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+      }
+    }
+
+    .header__menu {
+      @include respond($bp-sm) {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+    }
+
+    .nav {
+      @include respond($bp-sm) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0rem;
+        width: 100%;
+      }
+    }
+
+    .nav__link {
+      @include respond($bp-sm) {
+        font-size: 2.25rem;
+        padding: 3rem 0;
+        width: 100%;
+        border-bottom: 1px solid rgba($text-colour, 0.1);
+
+        &:first-of-type {
+          border-top: none;
+        }
+      }
+    }
   }
 }
 
@@ -114,7 +163,9 @@
 
   @include respond($bp-sm) {
     display: block;
-    position: relative;
+    position: absolute;
+    right: 2rem;
+    top: 30px;
     cursor: pointer;
     width: 40px;
     height: 20px;

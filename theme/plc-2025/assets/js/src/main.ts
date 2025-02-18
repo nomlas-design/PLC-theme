@@ -9,6 +9,11 @@ document.addEventListener('DOMContentLoaded', () => {
     navBar?.classList.toggle('header--open');
   });
 
+  // fake a click on menu for debug
+  // setTimeout(() => {
+  //   menuToggle?.dispatchEvent(new Event('click'));
+  // }, 1000);
+
   // Add a class to the body when the menu is open
   navBar?.addEventListener('transitionend', () => {
     if (navBar.classList.contains('header--open')) {

@@ -32,6 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle === null || menuToggle === void 0 ? void 0 : menuToggle.addEventListener('click', () => {
         navBar === null || navBar === void 0 ? void 0 : navBar.classList.toggle('header--open');
     });
+    // fake a click on menu for debug
+    // setTimeout(() => {
+    //   menuToggle?.dispatchEvent(new Event('click'));
+    // }, 1000);
     // Add a class to the body when the menu is open
     navBar === null || navBar === void 0 ? void 0 : navBar.addEventListener('transitionend', () => {
         if (navBar.classList.contains('header--open')) {
