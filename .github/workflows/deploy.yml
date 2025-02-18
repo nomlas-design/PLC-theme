@@ -11,15 +11,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
-      - name: Debug - List Files
-        run: ls -R
+        with:
+          fetch-depth: 0
 
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
           cache: 'npm' # Enables caching of npm dependencies
+
+      - name: Debug - List Files
+        run: ls -R theme/plc-2025 # Confirms correct paths in logs
 
       - name: Cache npm dependencies
         uses: actions/cache@v3
