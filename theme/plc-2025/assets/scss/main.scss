@@ -12,12 +12,16 @@
   padding: 0;
 }
 
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: $font-primary;
+  font-family: $font-body;
   font-size: 1.6rem;
   line-height: 1.5;
   color: $text-color;
-  background-color: blue;
   min-height: 100vh;
   scroll-behavior: smooth;
 }
@@ -38,7 +42,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: bold;
+  font-family: $font-heading;
+  font-weight: 600;
   line-height: 1.2;
 }
 
