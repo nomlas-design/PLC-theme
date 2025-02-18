@@ -12,13 +12,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # Ensures all files are pulled, including package-lock.json
 
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: 'npm' # Enables caching of npm dependencies
+          cache: 'npm'
 
       - name: Debug - List Files
         run: ls -R theme/plc-2025 # Confirms correct paths in logs
@@ -27,19 +27,17 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+          key: npm-${{ runner.os }}-${{ hashFiles('theme/plc-2025/package-lock.json') }}
           restore-keys: |
             npm-${{ runner.os }}-
 
       - name: Install Dependencies
-        run: |
-          cd theme/plc-2025
-          npm ci  # Faster than npm install if package-lock.json is present
+        working-directory: theme/plc-2025 # 🚀 Set working directory
+        run: npm ci
 
       - name: Build Theme Assets
-        run: |
-          cd theme/plc-2025
-          npm run build
+        working-directory: theme/plc-2025 # 🚀 Set working directory
+        run: npm run build
 
       - name: Deploy to FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
