@@ -1,3 +1,10 @@
-//@use 'globals/index' as *;
+@use '../globals/index' as *;
 
 @use 'header';
+
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}

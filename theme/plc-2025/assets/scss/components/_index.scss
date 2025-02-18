@@ -1,3 +1,11 @@
 // @use 'globals/index' as *;
 
 @use 'buttons';
+
+.icon {
+  display: inline-block;
+  width: 1.8rem;
+  height: 1.8rem;
+  fill: currentColor;
+  vertical-align: middle;
+}
