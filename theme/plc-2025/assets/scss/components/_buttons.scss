@@ -1,0 +1,42 @@
+@use '../globals/index' as *;
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  letter-spacing: 0.05rem;
+  border: 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition:
+    background 0.15s ease-out,
+    box-shadow 0.15s ease-out;
+
+  background: rgba($primary-colour, 0.9);
+  border: 1px solid $primary-colour;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  &:hover {
+    background: rgba($primary-colour, 1);
+    box-shadow: $shadow;
+  }
+
+  &--secondary {
+    background: rgba($secondary-colour, 0.9);
+    border: 1px solid $secondary-colour;
+    color: white;
+
+    &:hover {
+      background: rgba($secondary-colour, 1);
+    }
+  }
+
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+  }
+}

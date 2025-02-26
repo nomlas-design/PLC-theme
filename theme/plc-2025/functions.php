@@ -40,6 +40,8 @@ function plc_2025_setup()
   add_theme_support('title-tag');
   add_theme_support('post-thumbnails');
   add_theme_support('menus');
+
+  require_once get_stylesheet_directory() . '/components/button.php';
 }
 add_action('after_setup_theme', 'plc_2025_setup');
 

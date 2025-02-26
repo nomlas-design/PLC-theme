@@ -2,10 +2,13 @@
 
 .header {
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   width: 100%;
   padding: 1rem 0;
+
+  color: white;
 
   transition:
     background-color 0.3s ease-out,
@@ -15,6 +18,17 @@
     background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     top: calc(-2rem - 80px);
+
+    color: $text-colour;
+
+    .search-toggle {
+      .icon--dark {
+        display: inline-block;
+      }
+      .icon--light {
+        display: none;
+      }
+    }
   }
 
   &--active {
@@ -31,7 +45,6 @@
   }
 
   &__logo {
-    flex-shrink: 0;
     width: 210px;
     transition: opacity 0.3s ease-out;
 
@@ -42,10 +55,9 @@
 
   &__items {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 210px 1fr;
+    gap: $container-padding;
 
     &:hover .nav__link {
       opacity: 0.65;
@@ -70,7 +82,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 4rem;
+
+    &--left {
+      justify-content: flex-start;
+    }
+
+    &--right {
+      justify-content: flex-end;
+    }
   }
 
   .nav {
@@ -155,6 +175,15 @@
         }
       }
     }
+  }
+}
+
+.search-toggle {
+  .icon--dark {
+    display: none;
+  }
+  .icon--light {
+    display: inline-block;
   }
 }
 

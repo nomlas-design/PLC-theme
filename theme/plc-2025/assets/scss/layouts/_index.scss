@@ -8,3 +8,10 @@
   margin: 0 auto;
   padding: 0 $container-padding;
 }
+
+.h-span {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: $container-padding;
+}

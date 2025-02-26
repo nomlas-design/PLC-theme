@@ -33,11 +33,11 @@ jobs:
             npm-${{ runner.os }}-
 
       - name: Install Dependencies
-        working-directory: theme/plc-2025 # 🚀 Set working directory
+        working-directory: theme/plc-2025
         run: npm ci
 
       - name: Build Theme Assets
-        working-directory: theme/plc-2025 # 🚀 Set working directory
+        working-directory: theme/plc-2025
         run: npm run build
 
       - name: Deploy to FTP

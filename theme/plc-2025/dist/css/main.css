@@ -3,16 +3,25 @@
   \****************************************************************************************************************/
 .header {
   position: fixed;
+  z-index: 10;
   top: 0;
   left: 0;
   width: 100%;
   padding: 1rem 0;
+  color: white;
   transition: background-color 0.3s ease-out, top 0.3s ease-out;
 }
 .header--scrolled {
   background-color: rgba(255, 255, 255, 0.95);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   top: calc(-2rem - 80px);
+  color: #170e0d;
+}
+.header--scrolled .search-toggle .icon--dark {
+  display: inline-block;
+}
+.header--scrolled .search-toggle .icon--light {
+  display: none;
 }
 .header--active {
   top: 0;
@@ -26,7 +35,6 @@
   position: relative;
 }
 .header__logo {
-  flex-shrink: 0;
   width: 210px;
   transition: opacity 0.3s ease-out;
 }
@@ -35,10 +43,9 @@
 }
 .header__items {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 210px 1fr;
+  gap: 1.5rem;
 }
 .header__items:hover .nav__link {
   opacity: 0.65;
@@ -62,7 +69,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 4rem;
+}
+.header__menu--left {
+  justify-content: flex-start;
+}
+.header__menu--right {
+  justify-content: flex-end;
 }
 .header .nav {
   display: flex;
@@ -132,6 +145,13 @@
   }
 }
 
+.search-toggle .icon--dark {
+  display: none;
+}
+.search-toggle .icon--light {
+  display: inline-block;
+}
+
 .menu-toggle {
   display: none;
 }
@@ -173,6 +193,145 @@
   max-width: 1366px;
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+
+.h-span {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  letter-spacing: 0.05rem;
+  border: 0;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.15s ease-out, box-shadow 0.15s ease-out;
+  background: rgba(209, 100, 31, 0.9);
+  border: 1px solid #d1641f;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.btn:hover {
+  background: #d1641f;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+.btn--secondary {
+  background: rgba(235, 186, 97, 0.9);
+  border: 1px solid #ebba61;
+  color: white;
+}
+.btn--secondary:hover {
+  background: #ebba61;
+}
+.btn__icon {
+  height: 2rem;
+  width: 2rem;
+}
+
+.hero {
+  width: 100%;
+  height: 900px;
+  position: relative;
+}
+.hero .container--hero {
+  position: relative;
+  color: white;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+.hero__slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(5, 11, 14);
+  background: linear-gradient(93deg, rgba(5, 11, 14, 0.5) 0%, rgba(5, 11, 14, 0.1) 100%), linear-gradient(0deg, rgba(5, 11, 14, 0.1) 0%, rgba(5, 11, 14, 0.5) 100%);
+}
+.hero__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3rem;
+}
+.hero__heading h1 {
+  font-size: 5rem;
+  max-width: 650px;
+}
+.hero__heading p {
+  font-size: 2rem;
+}
+.hero__slide__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  text-align: right;
+}
+.hero__slide__info .hero__title {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.hero__slide__info .hero__client {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.hero__slide__info .hero__issue {
+  font-size: 1.4rem;
+}
+.hero__slide__nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.hero__slide__nav button img {
+  height: 2rem;
+  width: 2rem;
+}
+.hero__slide__loc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+.hero__slide__number {
+  margin-top: 0;
+  font-size: 2rem;
+}
+.hero__content {
+  height: 100%;
+  width: 100%;
+  padding: 3rem 0;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-gap: 2rem;
 }
 
 .icon {
@@ -227,7 +386,7 @@ h4,
 h5,
 h6 {
   font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.2;
 }
 

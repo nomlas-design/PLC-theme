@@ -3,6 +3,7 @@ wordpress/
 
 # Track only the theme directory (not the entire wp-content)
 !theme/plc-2025/
+!courses/
 
 # Ignore node_modules inside the theme
 theme/plc-2025/node_modules/
