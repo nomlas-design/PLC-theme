@@ -1,0 +1,8 @@
+@use '../globals/index' as *;
+
+.card {
+  padding: calc(2 * $container-padding);
+  border-radius: 1rem;
+  box-shadow: $shadow;
+  background: $secondary-bg-colour;
+}

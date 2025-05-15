@@ -1,0 +1,16 @@
+@use '../globals/index' as *;
+
+.certificate-card {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  background: white;
+  box-shadow: $shadow;
+  border-radius: 1rem;
+  padding: 2rem;
+
+  a {
+    color: $primary-colour;
+    text-decoration: underline;
+  }
+}

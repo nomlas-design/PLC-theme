@@ -8,7 +8,7 @@ function plc_register_schedules_cpt()
 {
   register_post_type('plc_schedule', array(
     'labels' => array(
-      'name' => __('View Schedules', 'plc-courses'),
+      'name' => __('Schedules', 'plc-courses'),
       'singular_name' => __('Schedule', 'plc-courses'),
       'add_new' => __('Add New Schedule', 'plc-courses'),
       'add_new_item' => __('Add New Schedule', 'plc-courses'),

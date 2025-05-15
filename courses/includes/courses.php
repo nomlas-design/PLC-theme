@@ -18,8 +18,12 @@ function plc_register_courses_cpt()
       'search_items' => __('Search Courses', 'plc-courses'),
     ),
     'public' => true,
+    'rewrite' => [
+      'slug' => 'courses',
+      'with_front' => false,
+    ],
     'has_archive' => true,
-    'supports' => array('title', 'editor', 'thumbnail'),
+    'supports' => array('title'),
     'menu_icon' => 'dashicons-welcome-learn-more',
   ));
 }

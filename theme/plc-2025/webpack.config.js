@@ -1,15 +1,12 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-
 const isDevelopment = process.env.NODE_ENV === 'development';
-
 const plugins = [
   new MiniCssExtractPlugin({
     filename: 'css/[name].css',
   }),
 ];
-
 // Only add BrowserSync in development mode
 if (isDevelopment) {
   plugins.push(
@@ -34,10 +31,13 @@ if (isDevelopment) {
     )
   );
 }
-
 module.exports = {
   entry: {
     main: ['./assets/js/src/main.ts', './assets/scss/main.scss'],
+    courses: './assets/js/src/courses.ts',
+    course: './assets/js/src/course.ts',
+    slider: './assets/js/src/slider.ts',
+    booking: './assets/js/src/booking.ts',
   },
   output: {
     filename: 'js/[name].js',

@@ -2,13 +2,20 @@ $bp-lg: 1366px;
 $bp-md: 1024px;
 $bp-sm: 768px;
 
-$container-max-width: 1366px;
+$container-max-width: 1180px;
 $container-padding: 1.5rem;
 $header-height: 80px;
 
-$primary-colour: #d1641f;
-$secondary-colour: #ebba61;
-$text-colour: #170e0d;
+$primary-colour: #ec8511;
+$secondary-colour: #ffd58d;
+$heading-colour: #170e0d;
+$text-colour: #3c3c3c;
+$secondary-text-colour: #5a5a5a;
+$secondary-bg-colour: #ffe6d1;
+$primary-bg-colour: #fff3e9;
+$border-colour: #e0e0e0;
+
+$card-colour: rgba(255, 255, 255, 0.75);
 
 $font-heading: 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif;
 $font-body: 'Source Sans Pro', sans-serif;

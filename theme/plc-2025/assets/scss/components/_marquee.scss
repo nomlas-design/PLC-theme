@@ -1,0 +1,19 @@
+@use '../globals/index' as *;
+
+.container--marquee {
+  position: relative;
+  top: 50px;
+}
+.marquee {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  .client {
+    width: 120px;
+    height: auto;
+    filter: grayscale(100%);
+  }
+}

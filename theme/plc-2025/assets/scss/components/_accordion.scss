@@ -1,0 +1,118 @@
+@use '../globals/index' as *;
+
+.content--accordion {
+  .content__heading {
+    p {
+      max-width: 90%;
+    }
+  }
+}
+
+.accordion {
+  background: rgba($secondary-bg-colour, 0.7);
+  color: $text-colour;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition:
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    border 0.3s ease;
+
+  &:hover {
+    box-shadow: $shadow;
+  }
+
+  &:has(.accordion__header:hover) {
+    //border: 1px solid rgba($primary-colour, 0.3);
+  }
+
+  &--open {
+    box-shadow: $shadow;
+
+    background: rgba($primary-bg-colour, 1);
+  }
+
+  &__header {
+    width: 100%;
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.5rem;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  &__title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+  }
+
+  &__title-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    &-image {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+  }
+
+  &__title {
+    font-family: $font-body;
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+  &__chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+    transition: transform 0.3s ease;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    &--rotated {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__body {
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  &__content {
+    padding: 0.5rem 2rem 2rem 2rem;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Accordion group container
+.accordion-group {
+  display: flex;
+  flex-direction: column;
+  gap: $container-padding;
+}

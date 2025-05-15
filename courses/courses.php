@@ -17,3 +17,5 @@ require_once plugin_dir_path(__FILE__) . 'includes/courses.php';
 require_once plugin_dir_path(__FILE__) . 'includes/schedules.php';
 require_once plugin_dir_path(__FILE__) . 'includes/presenters.php';
 require_once plugin_dir_path(__FILE__) . 'includes/bookings.php';
+require_once plugin_dir_path(__FILE__) . 'includes/terra.php';
+require_once plugin_dir_path(__FILE__) . 'includes/staff.php';

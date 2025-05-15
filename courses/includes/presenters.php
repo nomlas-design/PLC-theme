@@ -8,7 +8,7 @@ function plc_register_presenters_cpt()
 {
   register_post_type('plc_presenter', array(
     'labels' => array(
-      'name' => __('View Presenters', 'plc-courses'),
+      'name' => __('Presenters', 'plc-courses'),
       'singular_name' => __('Presenter', 'plc-courses'),
       'add_new' => __('Add New Presenter', 'plc-courses'),
       'add_new_item' => __('Add New Presenter', 'plc-courses'),
@@ -19,7 +19,7 @@ function plc_register_presenters_cpt()
     ),
     'public' => true,
     'has_archive' => false,
-    'supports' => array('title', 'editor', 'thumbnail'),
+    'supports' => array('title'),
     'menu_icon' => 'dashicons-id',
   ));
 }

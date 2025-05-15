@@ -2,7 +2,8 @@
 
 .btn {
   display: inline-block;
-  padding: 1rem 2rem;
+  //height: 100%;
+  padding: 0.7rem 1.7rem;
   font-size: 1.6rem;
   letter-spacing: 0.05rem;
   border: 0;
@@ -10,33 +11,114 @@
   cursor: pointer;
   transition:
     background 0.15s ease-out,
-    box-shadow 0.15s ease-out;
-
-  background: rgba($primary-colour, 0.9);
+    box-shadow 0.15s ease-out,
+    color 0.15s ease-out;
+  background: rgba($primary-colour, 1);
+  backdrop-filter: blur(4px);
   border: 1px solid $primary-colour;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  align-self: flex-start;
+  line-height: 1.5;
 
   &:hover {
-    background: rgba($primary-colour, 1);
+    background: rgba($primary-colour, 0.8);
     box-shadow: $shadow;
   }
 
   &--secondary {
-    background: rgba($secondary-colour, 0.9);
-    border: 1px solid $secondary-colour;
-    color: white;
+    background: rgba($primary-colour, 0);
+    border: 1px solid $primary-colour;
+    color: rgba($primary-colour, 1);
 
     &:hover {
-      background: rgba($secondary-colour, 1);
+      background: rgba($primary-colour, 1);
+      color: white;
     }
+  }
+  &--small {
+    padding: 0.5rem 1.5rem;
+    font-size: 1.4rem;
+
+    .btn__icon-container {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    .btn__icon {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+
+  &--transparent {
+    background: transparent;
+    color: $text-colour;
+    border: none;
+    padding: 0;
+
+    &:hover {
+      border: none;
+      background: transparent;
+      box-shadow: none;
+      color: $heading-colour;
+    }
+  }
+
+  &__icon-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    width: 2rem;
   }
 
   &__icon {
     height: 2rem;
     width: 2rem;
+
+    // For single icons (no hover functionality)
+    svg {
+      height: 100%;
+      width: 100%;
+    }
+
+    // When inside the container (for hover functionality)
+    &--default,
+    &--hover {
+      transition: opacity 0.15s ease;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &--hover {
+      opacity: 0;
+    }
+  }
+
+  // Only apply hover effects when the button has a hover icon
+  &--has-hover-icon:hover {
+    .btn__icon--default {
+      opacity: 0;
+    }
+
+    .btn__icon--hover {
+      opacity: 1;
+    }
   }
 }
