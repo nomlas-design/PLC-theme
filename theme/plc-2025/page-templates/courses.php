@@ -248,7 +248,7 @@ get_header();
           <div class='courses-child__cta'>
             <?php echo plc_2025_button([
               'text'    => 'View Details',
-              'url'     => '/event-single',
+              'url'     => '/courses/restrictions-on-title',
               'variant' => 'secondary',
               'icon'    => 'arrow-right--orange',
               'hover_icon' => 'arrow-right',

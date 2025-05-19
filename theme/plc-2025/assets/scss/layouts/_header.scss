@@ -109,9 +109,52 @@
     &__link {
       font-size: 1.6rem;
       //font-weight: 600;
+      &--dropdown {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        cursor: default;
+
+        img {
+          width: 1.75rem;
+          height: 1.75rem;
+        }
+      }
     }
 
-    &--secondary {
+    &__dropdownwrap {
+      position: relative;
+      height: 100%;
+      &:hover {
+        .nav__dropdownbox {
+          display: flex;
+          opacity: 1;
+        }
+      }
+    }
+
+    &__dropdownbox {
+      position: absolute;
+      top: 0px;
+      opacity: 0;
+      display: none;
+      transition: opacity 0.3s ease-out;
+    }
+
+    &__dropdown {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background: rgba(255, 255, 255, 0.98);
+      padding: 1.5rem 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(0.5px);
+      width: 300px;
+
+      transition: opacity 0.3s ease-out;
     }
   }
 
